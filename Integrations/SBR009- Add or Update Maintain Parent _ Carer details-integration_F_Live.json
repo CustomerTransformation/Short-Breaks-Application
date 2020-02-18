@@ -1,0 +1,16 @@
+[
+    {
+        "ID": "5e33f76125aaa",
+        "Name": "SBR009- Add or Update Maintain Parent / Carer details",
+        "Type": "DATABASE",
+        "LIM_id": "83ef69d1-2c5e-11e5-ad20-22000a7a05f5",
+        "Editable": true,
+        "LIM_name": "Portsmouth",
+        "Category": "ChildrenAndFamilies",
+        "data_type": "integration",
+        "allow_offline": 0,
+        "Output_template": "{\"systemID\":\"5e4bbb4d91994\",\"systemName\":\"ChildrenAndFamilies\",\"query\":\"shortBreaks_addUpdateParentCarer\\n\\t\\t\\t@reference = {appReference}\\n           ,@title = {Title_out}\\n           ,@firstName = {First_Name_out}\\n           ,@lastName = {Surname_out}\\n           ,@dateOfBirth = {Date_Of_Birth_out}\\n           ,@email = {Email_Address_out}\\n           ,@phoneNum = {Phone_Number_out}\\n           ,@mobile = {Mobile_Number_out}\\n           ,@flat = {flat_out1}\\n           ,@house = {house_out1}\\n           ,@road = {street_out1}\\n           ,@town = {town_out1}\\n           ,@postCode = {postcode_out51}\\n           ,@uprn = {uprn_out1}\\n\\t\\t   ,@previously = {previously}\\n\\t\\t   ,@stillHave = {stillHave}\\n           ,@eligable = ''\\n\\t\\t   ,@IDparentCarer = {ID_ParentCarer}\\n\\t\\t   ,@applicationDate = {dateSubmitted}\\n\\t\\t   ,@user = {user_name}\\n\\t\\t   ,@currentYear = {forFinYear}\\n\\t\\t   ,@organisation = {organisation}\\n\\t\\t   ,@refMaintain = {reference}\",\"results_page_columns_db\":\"\",\"secure_fields_db_database\":\"\",\"escapeTokens\":\"yes\"}",
+        "log_only_on_error": 0,
+        "error_notification": "{\"LIM_id\":\"3f07ecf4-0dfa-11e2-b0b9-12313b03ed59\",\"LIM_name\":\"LIM14\",\"recipients_to\":\"daniel.gregory@portsmouthcc.gov.uk\"}"
+    }
+]

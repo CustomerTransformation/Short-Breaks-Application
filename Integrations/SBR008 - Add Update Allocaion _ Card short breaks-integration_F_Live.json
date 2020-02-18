@@ -1,0 +1,16 @@
+[
+    {
+        "ID": "5e32ef86390fe",
+        "Name": "SBR008 - Add Update Allocaion / Card short breaks",
+        "Type": "DATABASE",
+        "LIM_id": "83ef69d1-2c5e-11e5-ad20-22000a7a05f5",
+        "Editable": true,
+        "LIM_name": "Portsmouth",
+        "Category": "ChildrenAndFamilies",
+        "data_type": "integration",
+        "allow_offline": 0,
+        "Output_template": "{\"systemID\":\"5e4bbb4d91994\",\"systemName\":\"ChildrenAndFamilies\",\"query\":\"EXEC shortBreaks_addUpdateAllocationCard\\n\\t\\t\\t@parentCarerRef = {appReference}\\n           ,@batchUpload = {batchUpload}\\n           ,@cardCreated = {cardCreated}\\n           ,@cardExpiry = {cardExpiryDate}\\n           ,@cardholderID = {cardholderID}\\n           ,@numChildren = {numberOfChildrenW}\\n           ,@allocationStarts = {allocationStarts}\\n           ,@allocationEnds = {allocationEnds}\\n           ,@totalDays = {numberOfDaysCal}\\n           ,@amount = {amountOfPayment}\\n           ,@scheduleToCFL = {datePaymentSchedul}\\n           ,@cardSent = {dateCardSent}\\n           ,@childMonSS = {childMonitoringDat}\\n           ,@Comments = {comments}\\n           ,@forYear = {forFinYear}\\n           ,@user = {user_name}\\n\\t\\t   ,@upCard = {upCard}\\n\\t\\t   ,@upAllocation = {upAllocation}\\n\\t\\t   ,@upIssue = {upIssue}\\n\\t\\t   ,@reference = {reference}\",\"results_page_columns_db\":\"\",\"secure_fields_db_database\":\"\",\"escapeTokens\":\"yes\"}",
+        "log_only_on_error": 0,
+        "error_notification": "{\"LIM_id\":\"3f07ecf4-0dfa-11e2-b0b9-12313b03ed59\",\"LIM_name\":\"LIM14\",\"recipients_to\":\"daniel.gregory@portsmouthcc.gov.uk\"}"
+    }
+]
