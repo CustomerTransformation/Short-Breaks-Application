@@ -1,8 +1,8 @@
 {
-  "processName": "Short Break Pre-Paid Card Application",
+  "processName": "Short breaks - apply for a pre-paid card",
   "processDescription": "",
   "props": {
-    "id": "AF-Process-c6c9e647-98f8-4e97-900b-b36a6987b477",
+    "id": "AF-Process-59299292-0109-4f29-bd32-53b93e9e168a",
     "category": "AF-Category-87f0e8f5-ad5a-4e2a-a0bd-89ea7f328708",
     "tags": "",
     "viewGroup": null,
@@ -10,12 +10,12 @@
     "date_due": "",
     "date_due_warn": "",
     "showCaseReference": false,
-    "isPublished": true,
     "isSubform": false,
-    "notes": false,
+    "notes": "updated customer details form",
     "initial_stage": "Stage 1",
     "initial_stage_id": "AF-Stage-8c36f422-ef9f-4621-9a1d-1717e3ff83d0",
-    "prefix": "CF"
+    "prefix": "CF",
+    "isPublished": true
   },
   "stages": {
     "Stage 1": {
@@ -74,7 +74,16 @@
             "repeat_against": "",
             "type_condition": "submission",
             "timed_condition": "",
-            "repeat_interval": ""
+            "repeat_interval": "",
+            "conditionInputs": [
+              {
+                "element": "select",
+                "value": "",
+                "type": [
+                  "_core"
+                ]
+              }
+            ]
           }
         ],
         "user_token": null,
@@ -110,7 +119,7 @@
         "startSection": "",
         "usenewPaymentMethod": false,
         "formDefinition": {
-          "formName": "Short Break Pre-Paid Card Application",
+          "formName": "Short breaks - apply for a pre-paid card",
           "formDescription": "",
           "props": {
             "id": "AF-Form-39b0af79-67ab-4bdf-a0cd-99731021c1be",
@@ -187,8 +196,8 @@
                 "Category": "z Global",
                 "data_type": "lookup",
                 "allow_offline": 0,
-                "Output_template": "{\"lookup_validation\":\"0\",\"method\":\"GET\",\"url\":\"https://{host}/apibroker/?key={apibrokerKey}&pass={apibrokerPass}&api=getCiviVars&app_name=AchieveService&var=titles\",\"show_headers\":\"no\",\"responseType\":\"JSON\",\"strip_namespaces\":\"1\",\"path_to_values\":\"RepeatableNode\",\"fields\":\"{\\n\\n\\\"name\\\":\\\"name\\\",\\n\\n\\\"label\\\":\\\"display\\\"\\n\\n}\",\"xslt_stylesheet\":\"\",\"results_page_columns\":\"\",\"secure_fields_db_http\":\"\"}",
-                "log_only_on_error": 0,
+                "Output_template": "{\"method\":\"GET\",\"url\":\"https://{host}/apibroker/?key={apibrokerKey}&pass={apibrokerPass}&api=getCiviVars&app_name=AchieveService&var=titles\",\"show_headers\":\"no\",\"responseType\":\"JSON\",\"strip_namespaces\":\"1\",\"path_to_values\":\"RepeatableNode\",\"fields\":\"{\\n\\n\\\"name\\\":\\\"name\\\",\\n\\n\\\"label\\\":\\\"display\\\"\\n\\n}\",\"xslt_stylesheet\":\"\",\"results_page_columns\":\"\",\"secure_fields_db_http\":\"\"}",
+                "log_only_on_error": 1,
                 "error_notification": "{\"LIM_name\":\"LIM14\",\"recipients_to\":\"daniel.gregory@portsmouthcc.gov.uk\"}"
               },
               "58ca773b44b4b": {
@@ -200,9 +209,9 @@
                 "Category": "z Global",
                 "data_type": "lookup",
                 "allow_offline": 0,
-                "Output_template": "{\"lookup_validation\":\"0\",\"secure_fields_db_database\":\"\",\"results_page_columns_db\":\"\",\"escapeTokens\":\"yes\",\"systemName\":\"Firmstep Solutions Read\",\"query\":\"select CONCAT(trim(concat(sao,' ',pao)),' ',street_name,', ',town_name) as display, uprn as name\\nFROM llpgcache\\nWHERE \\n(\\n(REPLACE(postcode, ' ','') = REPLACE({postcode_search_after},' ',''))\\nOR (concat(trim(concat(sao,' ',pao)),' ',street_name) like concat('%',{postcode_search_after},'%'))\\n)\\nAND length(REPLACE({postcode_search_after},' ',''))>5\\nAND postcode != ''\\nORDER BY CAST(pao AS SIGNED),sao,street_name ASC LIMIT 300\",\"systemID\":\"59dc224eb4f63\"}",
-                "log_only_on_error": 0,
-                "error_notification": "{\"LIM_name\":\"LIM14\",\"recipients_to\":\"daniel.gregory@portmouthcc.gov.uk\"}"
+                "Output_template": "{\"systemID\":\"59a4f21090a7f\",\"systemName\":\"Firmstep Solutions Read\",\"lookup_validation\":\"0\",\"results_page_columns_db\":\"\",\"secure_fields_db_database\":\"\",\"escapeTokens\":\"yes\",\"query\":\"select CONCAT(trim(concat(sao,' ',pao)),' ',street_name,', ',town_name) as display, uprn as name\\nFROM llpgcache\\nWHERE \\n(\\n(REPLACE(postcode, ' ','') = REPLACE({postcode_search_after},' ',''))\\nOR (concat(trim(concat(sao,' ',pao)),' ',street_name) like concat('%',{postcode_search_after},'%'))\\n)\\nAND length(REPLACE({postcode_search_after},' ',''))>5\\nAND postcode != ''\\nORDER BY CAST(pao AS SIGNED),sao,street_name ASC LIMIT 300\"}",
+                "log_only_on_error": 1,
+                "error_notification": "{\"LIM_name\":\"LIM14\",\"recipients_to\":\"isbat1@portmouthcc.gov.uk\"}"
               },
               "58ca6c233f02c": {
                 "Editable": true,
@@ -213,9 +222,9 @@
                 "Category": "z Global",
                 "data_type": "lookup",
                 "allow_offline": 0,
-                "Output_template": "{\"lookup_validation\":\"0\",\"results_page_columns_db\":\"\",\"escapeTokens\":\"yes\",\"systemName\":\"Firmstep Solutions Read\",\"query\":\"select\\n\\tsao as flat_out,\\n\\tpao as house_out,\\n\\tstreet_name as street_out,\\n\\ttown_name as town_out, \\n\\tpostcode as postcode_out5,\\n\\tuprn as uprn_out,\\n\\tlng as lng_out,\\n\\tlat as lat_out,\\n\\t{Choose_Address} as uprn_selected\\nFROM \\n\\tllpgcache\\nWHERE \\n\\tuprn = {Choose_Address}\",\"systemID\":\"59dc224eb4f63\"}",
-                "log_only_on_error": 0,
-                "error_notification": "{\"LIM_name\":\"LIM14\",\"recipients_to\":\"daniel.gregory@portmouthcc.gov.uk\"}"
+                "Output_template": "{\"systemID\":\"59a4f21090a7f\",\"systemName\":\"Firmstep Solutions Read\",\"lookup_validation\":\"0\",\"results_page_columns_db\":\"\",\"secure_fields_db_database\":\"\",\"escapeTokens\":\"yes\",\"query\":\"select\\n\\tsao as flat_out,\\n\\tpao as house_out,\\n\\tstreet_name as street_out,\\n\\ttown_name as town_out, \\n\\tpostcode as postcode_out5,\\n\\tuprn as uprn_out,\\n\\tlng as lng_out,\\n\\tlat as lat_out,\\n\\t{Choose_Address} as uprn_selected\\nFROM \\n\\tllpgcache\\nWHERE \\n\\tuprn = {Choose_Address}\"}",
+                "log_only_on_error": 1,
+                "error_notification": "{\"LIM_name\":\"LIM14\",\"recipients_to\":\"isbat1@portmouthcc.gov.uk\"}"
               },
               "58caab1689189": {
                 "Editable": true,
@@ -226,9 +235,9 @@
                 "Category": "z Global",
                 "data_type": "integration-lookup",
                 "allow_offline": 0,
-                "Output_template": "{\"lookup_validation\":\"0\",\"profile_action\":\"get\",\"ucrn\":\"{UCRN}\"}",
-                "log_only_on_error": 0,
-                "error_notification": "{\"LIM_name\":\"LIM14\",\"recipients_to\":\"daniel.gregory@portsmouthcc.gov.uk\"}"
+                "Output_template": "{\"lookup_validation\":\"0\",\"profile_action\":\"get\",\"ucrn\":\"{UCRN}\",\"secure_fields_db_profile\":\"\"}",
+                "log_only_on_error": 1,
+                "error_notification": "{\"LIM_name\":\"LIM14\",\"recipients_to\":\"isbat1@portsmouthcc.gov.uk\"}"
               },
               "58ca9f8575eb5": {
                 "Editable": true,
@@ -239,9 +248,9 @@
                 "Category": "z Global",
                 "data_type": "lookup",
                 "allow_offline": 0,
-                "Output_template": "{\"lookup_validation\":\"0\",\"secure_fields_db_database\":\"\",\"results_page_columns_db\":\"\",\"escapeTokens\":\"yes\",\"systemName\":\"Firmstep Solutions Read\",\"query\":\"select * From\\n(select\\n\\t1 as IDZZ,\\n\\t1 as existSelected,\\n\\t1 as existingCustomer,\\n\\t{Organisation_Name} as Organisation_Name_out,\\n\\t{Title} as Title_out,\\n\\t{First_Name} as First_Name_out,\\n\\t{Surname} as Surname_out,\\n\\t{flat} as flat_out,\\n\\t{house} as house_out,\\n\\t{street} as street_out,\\n\\t{town} as town_out, \\n\\tif({country} IS NOT NULL and {country} != '' and {country} != 'United Kingdom','',{postcode}) as postcode_out5,\\n\\tif({country} IS NOT NULL and {country} != '' and {country} != 'United Kingdom',{postcode},'') as zIPPostcode,\\n\\t{country} as country_out,\\n\\t{country_id} as sel_country,\\n\\t{uprn} as uprn_out,\\n\\t{lng} as lng_out,\\n\\t{lat} as lat_out,\\n\\t{Date_of_Birth} as Date_of_Birth_out,\\n\\t{Email_Address} as Email_Address_out,\\n\\t{Mobile_Number} as Mobile_Number_out,\\n\\t{Phone_Number} as Phone_Number_out,\\n\\t'ProAi' as haveRun\\nunion select\\n\\t2 as IDZZ,\\n\\t'' as existSelected,\\n\\t'' as existingCustomer,\\n\\t{Organisation_Name} as Organisation_Name_out,\\n\\t{Title} as Title_out,\\n\\t{First_Name} as First_Name_out,\\n\\t{Surname} as Surname_out,\\n\\t'' as flat_out,\\n\\t'' as house_out,\\n\\t'' as street_out,\\n\\t'' as town_out, \\n\\t'' as postcode_out5,\\n\\t'' as zIPPostcode,\\n\\t'' as country_out,\\n\\t'' as sel_country,\\n\\t'' as uprn_out,\\n\\t'' as lng_out,\\n\\t'' as lat_out,\\n\\t{Date_of_Birth} as Date_of_Birth_out,\\n\\t{Email_Address} as Email_Address_out,\\n\\t{Mobile_Number} as Mobile_Number_out,\\n\\t{Phone_Number} as Phone_Number_out,\\n\\t'ProAe' as haveRun) Combine\\nWhere\\n\\tIDZZ = (select if({subParm} like '%dA%' \\n\\t\\t\\tand {subParm} not like '%oNA%'\\n\\t\\t\\tand {postcode} is not null ,1,2) as test)\",\"systemID\":\"59dc224eb4f63\"}",
-                "log_only_on_error": 0,
-                "error_notification": "{\"LIM_name\":\"LIM14\",\"recipients_to\":\"daniel.gregory@portmouthcc.gov.uk\"}"
+                "Output_template": "{\"systemID\":\"59a4f21090a7f\",\"systemName\":\"Firmstep Solutions Read\",\"lookup_validation\":\"0\",\"results_page_columns_db\":\"\",\"secure_fields_db_database\":\"\",\"escapeTokens\":\"yes\",\"query\":\"select * From\\n(select\\n\\t1 as IDZZ,\\n\\t1 as existSelected,\\n\\t1 as existingCustomer,\\n\\t{Organisation_Name} as Organisation_Name_out,\\n\\t{Title} as Title_out,\\n\\t{First_Name} as First_Name_out,\\n\\t{Surname} as Surname_out,\\n\\t{flat} as flat_out,\\n\\t{house} as house_out,\\n\\t{street} as street_out,\\n\\t{town} as town_out, \\n\\tif({country} IS NOT NULL and {country} != '' and {country} != 'United Kingdom','',{postcode}) as postcode_out5,\\n\\tif({country} IS NOT NULL and {country} != '' and {country} != 'United Kingdom',{postcode},'') as zIPPostcode,\\n\\t{country} as country_out,\\n\\t{country_id} as sel_country,\\n\\t{uprn} as uprn_out,\\n\\t{lng} as lng_out,\\n\\t{lat} as lat_out,\\n\\t{Date_of_Birth} as Date_of_Birth_out,\\n\\t{Email_Address} as Email_Address_out,\\n\\t{Mobile_Number} as Mobile_Number_out,\\n\\t{Phone_Number} as Phone_Number_out,\\n\\t'ProAi' as haveRun\\nunion select\\n\\t2 as IDZZ,\\n\\t'' as existSelected,\\n\\t'' as existingCustomer,\\n\\t{Organisation_Name} as Organisation_Name_out,\\n\\t{Title} as Title_out,\\n\\t{First_Name} as First_Name_out,\\n\\t{Surname} as Surname_out,\\n\\t'' as flat_out,\\n\\t'' as house_out,\\n\\t'' as street_out,\\n\\t'' as town_out, \\n\\t'' as postcode_out5,\\n\\t'' as zIPPostcode,\\n\\t'' as country_out,\\n\\t'' as sel_country,\\n\\t'' as uprn_out,\\n\\t'' as lng_out,\\n\\t'' as lat_out,\\n\\t{Date_of_Birth} as Date_of_Birth_out,\\n\\t{Email_Address} as Email_Address_out,\\n\\t{Mobile_Number} as Mobile_Number_out,\\n\\t{Phone_Number} as Phone_Number_out,\\n\\t'ProAe' as haveRun) Combine\\nWhere\\n\\tIDZZ = (select if({subParm} like '%dA%' \\n\\t\\t\\tand {subParm} not like '%oNA%'\\n\\t\\t\\tand {postcode} is not null ,1,2) as test)\"}",
+                "log_only_on_error": 1,
+                "error_notification": "{\"LIM_name\":\"LIM14\",\"recipients_to\":\"isbat1@portmouthcc.gov.uk\"}"
               },
               "58cac46f269a2": {
                 "Editable": true,
@@ -252,9 +261,9 @@
                 "Category": "z Global",
                 "data_type": "lookup",
                 "allow_offline": 0,
-                "Output_template": "{\"lookup_validation\":\"0\",\"secure_fields_db_database\":\"\",\"results_page_columns_db\":\"\",\"escapeTokens\":\"yes\",\"systemName\":\"Firmstep Solutions Read\",\"query\":\"Select *\\nFrom\\n(select\\n\\t{flat} as flat_out,\\n\\t{house} as house_out,\\n\\t{street} as street_out,\\n\\t{town} as town_out, \\n\\tIF({country} IS NULL or {country} = '' or {country} = 'United Kingdom', {postcode}, '') as postcode_out5,\\n\\tIF({country} IS NOT NULL and {country} != '' and {country} != 'United Kingdom', {postcode}, '') as zIPPostcode,\\n\\t{country} as country_out,\\n\\t{uprn} as uprn_out,\\n\\t{lng} as lng_out,\\n\\t{lat} as lat_out,\\n\\t1 as existSelected,\\n\\t1 as existingCustomer,\\n\\t'ProcAi' as haveRun\\nUnion select\\n\\t'' as flat_out,\\n\\t'' as house_out,\\n\\t'' as street_out,\\n\\t'' as town_out, \\n\\t'' as postcode_out5,\\n\\t'' as zIPPostcode,\\n\\t'' as country_out,\\n\\t'' as uprn_out,\\n\\t'' as lng_out,\\n\\t'' as lat_out,\\n\\t'' as existSelected,\\n\\t'' as existingCustomer,\\n\\t'ProcAi' as haveRun) as Comb\\nWhere\\n\\tIF({existingCustomer} = 1 or ({subParam} like '%dA%' and {haveRun} like '%Ae%'), 1, '') = Comb.existSelected\",\"systemID\":\"59dc224eb4f63\"}",
-                "log_only_on_error": 0,
-                "error_notification": "{\"LIM_name\":\"LIM14\",\"recipients_to\":\"daniel.gregory@portmouthcc.gov.uk\"}"
+                "Output_template": "{\"systemID\":\"59a4f21090a7f\",\"systemName\":\"Firmstep Solutions Read\",\"lookup_validation\":\"0\",\"results_page_columns_db\":\"\",\"secure_fields_db_database\":\"\",\"escapeTokens\":\"yes\",\"query\":\"select\\n IF({existingCustomer} = 1 or ({subParam} like '%dA%' and {haveRun} like '%Ae%'), {flat}, '') as flat_out,\\n IF({existingCustomer} = 1 or ({subParam} like '%dA%' and {haveRun} like '%Ae%'), {house}, '') as house_out,\\n IF({existingCustomer} = 1 or ({subParam} like '%dA%' and {haveRun} like '%Ae%'), {street}, '') as street_out,\\n IF({existingCustomer} = 1 or ({subParam} like '%dA%' and {haveRun} like '%Ae%'), {town}, '') as town_out, \\n\\tIF(({existingCustomer} = 1 or ({subParam} like '%dA%' and {haveRun} like '%Ae%')\\n\\t\\tand ({country} IS NULL or {country} = '' or {country} = 'United Kingdom')), {postcode}, '') as postcode_out5,\\n\\tIF(({existingCustomer} = 1 or ({subParam} like '%dA%' and {haveRun} like '%Ae%')\\n\\t\\tand ({country} IS NOT NULL and {country} != '' and {country} != 'United Kingdom')), {postcode}, '') as zIPPostcode,\\n IF({existingCustomer} = 1 or ({subParam} like '%dA%' and {haveRun} like '%Ae%'), {country}, '') as country_out,\\n IF({existingCustomer} = 1 or ({subParam} like '%dA%' and {haveRun} like '%Ae%'), {uprn}, '') as uprn_out,\\n IF({existingCustomer} = 1 or ({subParam} like '%dA%' and {haveRun} like '%Ae%'), {lng}, '') as lng_out,\\n IF({existingCustomer} = 1 or ({subParam} like '%dA%' and {haveRun} like '%Ae%'), {lat}, '') as lat_out,\\n IF({existingCustomer} = 1 or ({subParam} like '%dA%' and {haveRun} like '%Ae%'), 1, '') as existSelected,\\n IF({existingCustomer} = 1 or ({subParam} like '%dA%' and {haveRun} like '%Ae%'), 1, '') as existingCustomer,\\n 'ProcAi' as haveRun\"}",
+                "log_only_on_error": 1,
+                "error_notification": "{\"LIM_name\":\"LIM14\",\"recipients_to\":\"isbat1@portmouthcc.gov.uk\"}"
               },
               "58efbd46c0cbd": {
                 "Editable": true,
@@ -265,9 +274,9 @@
                 "Category": "z Global",
                 "data_type": "lookup",
                 "allow_offline": 0,
-                "Output_template": "{\"lookup_validation\":\"0\",\"secure_fields_db_database\":\"\",\"results_page_columns_db\":\"\",\"escapeTokens\":\"yes\",\"systemName\":\"Firmstep Solutions Read\",\"query\":\"select\\n\\ta.*,\\n\\tif(b.p1 + b.p2 + b.p3 - b.p4 > 2,'Entered','') as uprn_selected,\\n\\tif(b.p1 + b.p2 + b.p3 - b.p4 > 2,'',1) as Address_Found,\\n\\tif(b.p1 + b.p2 + b.p3 - b.p4 > 2,'',concat(if(b.p1 + b.p2 + b.p3 < 3,if({subParam} like '%mAl%','<span style=\\\"color:red\\\">The address must contain a flat or house and road. </span>','<span style=\\\"color:red\\\">The address must contain a flat or house number, road and postcode. </span>'),''),if(b.p4 = 1,'<span style=\\\"color:red\\\">&nbsp;The postcode must contain a space, for e.g. \\\"PO1 2AL\\\"</span>',''))) as confMsg,\\n\\t'' as confirmAddress,\\n\\tb.*\\nfrom\\n\\t(select\\n\\t\\t123 as id,\\n\\t\\t{flat_out1} as flat_out,\\n\\t\\t{house_out1} as house_out,\\n\\t\\t{street_out1} as street_out,\\n\\t\\t{town_out1} as town_out, \\n\\t\\t{postcode_out51} as postcode_out5,\\n\\t\\t{zIPPostcode1} as zIPPostcode,\\n\\t\\t{country_out1} as country_out,\\n\\t\\t{sel_country} as country_id_out,\\n\\t\\t'' as uprn_out,\\n\\t\\t'' as lng_out,\\n\\t\\t'' as lat_out,\\n\\t\\t'' as existSelected,\\n\\t\\t'' as existingCustomer) as a\\nRIGHT JOIN\\n\\t(select \\n\\t\\tif(c.p1 + c.p2 + c.p3 - c.p4 > 2,'123','321') as id,\\n\\t\\tc.*\\n\\tfrom\\n\\t(select\\n\\t\\tif({flat_out1} != '' or {house_out1} != '',1,if({subParam} like '%mAd%' or {subParam} like '%mAl%',0,1)) as p1,\\n\\t\\tif({street_out1} != '',1,if({subParam} like '%mAd%'or {subParam} like '%mAl%',0,1)) as p2,\\n\\t\\tif({postcode_out51} != '' or {zIPPostcode1} != '',1,if({subParam} like '%mAd%' or {subParam} like '%mPo%',0,1)) as p3,\\n\\t\\tif({postcode_out51} REGEXP '(((^[BEGLMNSbeglmns][1-9][0-9]?)|(^[Ww][2-9])|(^([Aa][BLbl]|[Bb][ABDHLNRSTabnhlnrst]|[Cc][ABFHMORTVWabfhmortvw]|[Dd][ADEGHLNTYadeghlnty]|[Ee][HNXhnx]|[Ff][KYky]|[Gg][LUYluy]|[Hh][ADGPRSUXadgprsux]|[Ii][GMPVgmpv]|[JEje]|[Kk][ATWYatwy]|[Ll][ADELNSUadelnsu]|[Mm][EKLekl]|[Nn][EGNPRWegnprw]|O[LXlx]|[Pp][AEHLORaehlor]|[Rr][GHMghm]|[Ss][AEGKL-Paegkl-pRSTWYrstwy]|[Tt][ADFNQRSWadfnqrsw]|[UBub]|[Ww][ADFNRSVadfnrsv]|YO|ZE|yo|ze)[0-9][0-9]?)|(^[Ww]1[A-Ha-hJKSTUWjkstuw0-9])|(((^[Ww][Cc][1-2])|(^[Ee][Cc][1-4])|(^[Ss][Ww]1))[ABEHMNPRVWXYabehmnprvwxy]))[_ ]([0-9][ABD-Habd-hJLNP-Ujlnp-uW-Zw-z]{2}))$|(^[Gg][Ii][Rr][_ ]0[Aa]{2})$',0,if({postcode_out51} != '',1,0)) as p4) as c) as b\\nON\\n\\ta.id = b.id\",\"systemID\":\"59dc224eb4f63\"}",
-                "log_only_on_error": 0,
-                "error_notification": "{\"LIM_name\":\"LIM14\",\"recipients_to\":\"daniel.gregory@portmouthcc.gov.uk\"}"
+                "Output_template": "{\"systemID\":\"59a4f21090a7f\",\"systemName\":\"Firmstep Solutions Read\",\"query\":\"select\\n\\ta.*,\\n\\tif(b.p1 + b.p2 + b.p3 - b.p4 > 2,'Entered','') as uprn_selected,\\n\\tif(b.p1 + b.p2 + b.p3 - b.p4 > 2,'',1) as Address_Found,\\n\\tif(b.p1 + b.p2 + b.p3 - b.p4 > 2,'',concat(if(b.p1 + b.p2 + b.p3 < 3,'<span style=\\\"color:red\\\">The address must contain a flat or house number, road and postcode. </span>',''),if(b.p4 = 1,'<span style=\\\"color:red\\\">&nbsp;The postcode must contain a space, for e.g. \\\"PO1 2AL\\\"</span>',''))) as confMsg,\\n\\t'' as confirmAddress,\\n\\tb.*\\nfrom\\n\\t(select\\n\\t\\t123 as id,\\n\\t\\t{flat_out1} as flat_out,\\n\\t\\t{house_out1} as house_out,\\n\\t\\t{street_out1} as street_out,\\n\\t\\t{town_out1} as town_out, \\n\\t\\t{postcode_out51} as postcode_out5,\\n\\t\\t{zIPPostcode1} as zIPPostcode,\\n\\t\\t{country_out1} as country_out,\\n\\t\\t{sel_country} as country_id_out,\\n\\t\\t'' as uprn_out,\\n\\t\\t'' as lng_out,\\n\\t\\t'' as lat_out,\\n\\t\\t'' as existSelected,\\n\\t\\t'' as existingCustomer) as a\\nRIGHT JOIN\\n\\t(select \\n\\t\\tif(c.p1 + c.p2 + c.p3 - c.p4 > 2,'123','321') as id,\\n\\t\\tc.*\\n\\tfrom\\n\\t(select\\n\\t\\tif({flat_out1} != '' or {house_out1} != '',1,if({subParam} like '%mAd%',0,1)) as p1,\\n\\t\\tif({street_out1} != '',1,if({subParam} like '%mAd%',0,1)) as p2,\\n\\t\\tif({postcode_out51} != '' or {zIPPostcode1} != '',1,if({subParam} like '%mAd%' or {subParam} like '%mPo%',0,1)) as p3,\\n\\t\\tif({postcode_out51} REGEXP '(((^[BEGLMNSbeglmns][1-9][0-9]?)|(^[Ww][2-9])|(^([Aa][BLbl]|[Bb][ABDHLNRSTabnhlnrst]|[Cc][ABFHMORTVWabfhmortvw]|[Dd][ADEGHLNTYadeghlnty]|[Ee][HNXhnx]|[Ff][KYky]|[Gg][LUYluy]|[Hh][ADGPRSUXadgprsux]|[Ii][GMPVgmpv]|[JEje]|[Kk][ATWYatwy]|[Ll][ADELNSUadelnsu]|[Mm][EKLekl]|[Nn][EGNPRWegnprw]|O[LXlx]|[Pp][AEHLORaehlor]|[Rr][GHMghm]|[Ss][AEGKL-Paegkl-pRSTWYrstwy]|[Tt][ADFNQRSWadfnqrsw]|[Uu][Bb]|[Ww][ADFNRSVadfnrsv]|YO|ZE|yo|ze)[0-9][0-9]?)|(^[Ww]1[A-Ha-hJKSTUWjkstuw0-9])|(((^[Ww][Cc][1-2])|(^[Ee][Cc][1-4])|(^[Ss][Ww]1))[ABEHMNPRVWXYabehmnprvwxy]))[_ ]([0-9][ABD-Habd-hJLNP-Ujlnp-uW-Zw-z]{2}))$|(^[Gg][Ii][Rr][_ ]0[Aa]{2})$',0,if({postcode_out51} != '',1,0)) as p4) as c) as b\\nON\\n\\ta.id = b.id\",\"results_page_columns_db\":\"\",\"secure_fields_db_database\":\"\",\"escapeTokens\":\"yes\"}",
+                "log_only_on_error": 1,
+                "error_notification": "{\"LIM_name\":\"LIM14\",\"recipients_to\":\"isbat1@portmouthcc.gov.uk\"}"
               }
             }
           },
@@ -441,7 +450,6 @@
                         "showFormReference": false,
                         "mustBeValid": true,
                         "hideHeader": false,
-                        "isPublished": false,
                         "isSubform": true,
                         "integrations": [],
                         "notes": false,
@@ -2637,8 +2645,8 @@
                                 "minimumValue": "",
                                 "maximumValue": "{today}",
                                 "mandatoryMessage": "This information is required",
-                                "minimumValueMessage": "This Field's Value Is Too Low",
-                                "maximumValueMessage": "This Field's Value Is Too High",
+                                "minimumValueMessage": "Please input a date in the past",
+                                "maximumValueMessage": "Please input a date in the past",
                                 "dateFormatMessage": "This Is Not The Valid Format",
                                 "dateFormat": "",
                                 "mandatoryCondition": "{subParam} contains 'mDb'",
